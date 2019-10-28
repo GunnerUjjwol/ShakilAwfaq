@@ -9,6 +9,8 @@ import { FiscalYearData } from './fiscalyear-data.service';
 import { from } from 'rxjs';
 import { HomeComponent } from './home/home.component';
 
+import { GrowlModule } from 'ngx-growl';
+
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CreateFiscalyearComponent } from './create-fiscalyear/create-fiscalyear.component';
@@ -30,6 +32,7 @@ import {
   ],
   imports: [
     BrowserModule,
+    GrowlModule.forRoot({ maxMessages: 1, displayTimeMs: 3000 }),
     MatNativeDateModule,
     MatInputModule,
     MatDatepickerModule,

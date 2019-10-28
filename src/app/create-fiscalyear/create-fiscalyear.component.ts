@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { FiscalYear } from '../model/fiscalyear-data';
 import { DataService } from '../data.service';
 
+import { GrowlService } from 'ngx-growl';
+
 @Component({
   selector: 'app-create-fiscalyear',
   templateUrl: './create-fiscalyear.component.html'
@@ -12,7 +14,9 @@ export class CreateFiscalyearComponent implements OnInit {
   fiscalYears: FiscalYear[];
   fiscalYear: FiscalYear;
 
-  constructor(private dataservice: DataService, private formBuilder : FormBuilder){}
+  constructor(private dataservice: DataService,
+     private formBuilder : FormBuilder,
+     private growlService : GrowlService){}
   getFiscalYears(){
     this.dataservice.getFiscalYears().subscribe(data => {
       this.fiscalYears = data;
@@ -35,6 +39,8 @@ export class CreateFiscalyearComponent implements OnInit {
 addFiscalYear() {
   this.dataservice.addFiscalYear(this.fiscalYearForm.value).subscribe(data => {
     this.fiscalYear = data;
+    
+    this.growlService.addInfo('New Fiscal Year Added');
     console.log(this.fiscalYear);
   });
   this.getFiscalYears();
@@ -44,6 +50,7 @@ deleteYear(id) {
 
   console.log(`Getting Deleted :  ${id}`);
   this.dataservice.deleteFiscalYear(id).subscribe(data => {
+    this.growlService.addWarn('Fiscal Year Deleted');
     this.getFiscalYears();
   });
 }
