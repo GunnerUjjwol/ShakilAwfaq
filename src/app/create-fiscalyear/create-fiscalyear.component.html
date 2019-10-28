@@ -135,13 +135,13 @@
         {{u.yearDescription}}
       </td>
       <td>
-        {{u.startDate}}
+        {{u.startDate  | date:'shortDate'}}
       </td>
       <td>
-        {{u.endDate}}
+        {{u.endDate | date:'shortDate'}}
       </td>
       <td>
-        {{u.isCurrent}}
+        {{u.isCurrent }}
       </td>
       <td>
         {{u.isOpen}}
