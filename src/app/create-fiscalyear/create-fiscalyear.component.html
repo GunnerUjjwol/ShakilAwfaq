@@ -1,4 +1,3 @@
- <!-- <h2>Create Fiscal Year</h2> -->
  <div class="card">
     <div class="card-header">
       Fiscal year
@@ -48,18 +47,24 @@
   <div class="form-group  row mb-2">
     <label for="startDate" class="col-md-2 col-form-label">Start Date:</label>
     <div class="col-md-8">
-    <input formControlName="startDate" placeholder="Start Date" 
-    name="startDate" class="form-control" id="startDate">
-    <!-- <input [matDatepicker]="myDatepicker">
-    <mat-datepicker #myDatepicker></mat-datepicker> -->
+    <!-- <input formControlName="startDate" placeholder="Start Date" 
+    name="startDate" class="form-control" id="startDate"> -->
+
+  <input formControlName="startDate"  id="startDate" name="startDate" matInput [matDatepicker]="startDate" placeholder="Start date">
+    <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+  <mat-datepicker #startDate></mat-datepicker>
+
     </div>
   </div>
 
   <div class="form-group  row mb-2">
     <label for="endDate" class="col-md-2 col-form-label">End Date:</label>
     <div class="col-md-8">
-    <input formControlName="endDate" placeholder="End Date" name="endDate" class="form-control" id="endDate">
-    </div>
+    <!-- <input formControlName="endDate" placeholder="End Date" name="endDate" class="form-control" id="endDate"> -->
+    <input formControlName="endDate"  id="endDate" name="endDate" matInput [matDatepicker]="endDate" placeholder="End date">
+    <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+  <mat-datepicker #endDate></mat-datepicker>  
+  </div>
   </div>
 
   <div class="form-group row mb-2">

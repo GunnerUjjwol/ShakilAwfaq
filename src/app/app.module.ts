@@ -14,6 +14,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CreateFiscalyearComponent } from './create-fiscalyear/create-fiscalyear.component';
 
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { 
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatInputModule
+} from '@angular/material';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +30,10 @@ import { CreateFiscalyearComponent } from './create-fiscalyear/create-fiscalyear
   ],
   imports: [
     BrowserModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatDatepickerModule,
+    BrowserAnimationsModule,
     AppRoutingModule, InMemoryWebApiModule.forRoot(FiscalYearData), HttpClientModule, FormsModule, ReactiveFormsModule
   ],
   providers: [],
